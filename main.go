@@ -1,24 +1,50 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	foobarqix "github.com/mesodiar/bello-go/foobar"
+)
 
 func main() {
-	prime(18)
+	fmt.Println(foobarqix.Title)
 }
 
-func prime(n int) {
-	for i:=2; i<=n; i++ {
-		count := 0
-		for j:=1; j<=i; j++ {
-			if i%j==0 {
-				count++
-			}
-		}
-		if count == 2{
-			fmt.Println(i)
-		}
+func mainPointer() {
+	// var p *int
+	var p = new(int)
+
+	fmt.Println(p == nil)
+	fmt.Println(*p)
+
+	if p == nil {
+		fmt.Println(*p)
 	}
+
+	i := 42
+	p = &i
+	
+	fmt.Printf("%x %x\n", *p, i)
+	fmt.Println(*p, i)
+
+	*p = 43
+	fmt.Println(*p, i)
+
 }
+
+
+// func prime(n int) {
+// 	for i:=2; i<=n; i++ {
+// 		count := 0
+// 		for j:=1; j<=i; j++ {
+// 			if i%j==0 {
+// 				count++
+// 			}
+// 		}
+// 		if count == 2{
+// 			fmt.Println(i)
+// 		}
+// 	}
+// }
 
 func mainOfBasic() {
 	var name string
