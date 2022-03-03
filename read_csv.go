@@ -4,13 +4,20 @@ import (
 	"fmt"
 	"encoding/csv"
 	"os"
+	"log"
 )
 
 func main() {
-	f, _ := os.Open("oscar_male.csv")
+	f, err := os.Open("oscar_male.csv")
+	if err != nil {
+		log.Fatal(err)
+	}
 	defer f.Close()
 	csvReader := csv.NewReader(f)
-	data, _ := csvReader.ReadAll()
+	data, err := csvReader.ReadAll()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	name_count := map[string]int{}
 
@@ -30,4 +37,13 @@ func main() {
 			fmt.Println(k)
 		}
 	}
+	// var get_values []int
+	// for _, v := range name_count {
+	// 	get_values = append(get_values, v)
+	// }
+
+	// fmt.Println(math.Max(get_values))
+	
+	
+
 }
