@@ -5,38 +5,72 @@ import (
 	foobarqix "github.com/mesodiar/bello-go/foobar"
 )
 
+func mainMap() {
+	s := []int{2, 3, 4, 5}
+	s = append(s[:1], s[2:]...)
 
-
-func split(text string) []string {
-	var result []string
-	for i:= 0;i<= len(text)-2; i++ {
-
-		if i % 2 == 0 {
-			result = append(result, text[i:i+2])
-		}
-	}
-	return result
-}
-
-
-func main() {
-	var s []int
-	text := "ABCDEFG"
-
-	fmt.Println(split(text))
-	// fmt.Println(len(text))
-	// x := [...]int{4, 5, 6, 7, 8}
-	// s = x[1:3]
-	// s = make([]int, 3, 5)
-
-	// s = x[1:3]
-	// s = append(s, 1, 2, 3)
-	// x[1] = 15
 	fmt.Println(s)
-	fmt.Println(len(s), cap(s))
+	// variadic(1, 2)
+	// variadic(s...)
 
-	// fmt.Println(s == nil)
+	
+	m := map[string]string{
+		"a": "apple",
+		"b": "banana",
+	}
+	delete(m, "b")
+	m["d"] = "date"
+	m["e"] = "elderberry"
+	fmt.Println(m)
+
+	for k, v := range m{
+		fmt.Println(k, v)
+		fmt.Println(m["d"])
+	}
+
+	if v, ok := m["e"]; ok {
+		fmt.Println(v)
+	} else{
+		fmt.Println("mai mee")
+	}
+
+	
 }
+func variadic(a ...int) {
+	fmt.Printf("%T %v\n", a, a)
+}
+
+
+// func split(text string) []string {
+// 	var result []string
+// 	for i:= 0;i<= len(text)-2; i++ {
+
+// 		if i % 2 == 0 {
+// 			result = append(result, text[i:i+2])
+// 		}
+// 	}
+// 	return result
+// }
+
+
+// func mainSlice() {
+// 	var s []int
+// 	text := "ABCDEFG"
+
+// 	fmt.Println(split(text))
+// 	// fmt.Println(len(text))
+// 	// x := [...]int{4, 5, 6, 7, 8}
+// 	// s = x[1:3]
+// 	// s = make([]int, 3, 5)
+
+// 	// s = x[1:3]
+// 	// s = append(s, 1, 2, 3)
+// 	// x[1] = 15
+// 	fmt.Println(s)
+// 	fmt.Println(len(s), cap(s))
+
+// 	// fmt.Println(s == nil)
+// }
 
 func mainOfArray() {
 	x := [...]int{4, 5, 6, 7}
