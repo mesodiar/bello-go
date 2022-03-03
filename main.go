@@ -5,7 +5,54 @@ import (
 	foobarqix "github.com/mesodiar/bello-go/foobar"
 )
 
+
+
+func split(text string) []string {
+	var result []string
+	for i:= 0;i<= len(text)-2; i++ {
+
+		if i % 2 == 0 {
+			result = append(result, text[i:i+2])
+		}
+	}
+	return result
+}
+
+
 func main() {
+	var s []int
+	text := "ABCDEFG"
+
+	fmt.Println(split(text))
+	// fmt.Println(len(text))
+	// x := [...]int{4, 5, 6, 7, 8}
+	// s = x[1:3]
+	// s = make([]int, 3, 5)
+
+	// s = x[1:3]
+	// s = append(s, 1, 2, 3)
+	// x[1] = 15
+	fmt.Println(s)
+	fmt.Println(len(s), cap(s))
+
+	// fmt.Println(s == nil)
+}
+
+func mainOfArray() {
+	x := [...]int{4, 5, 6, 7}
+
+	x[1] = 12
+
+	fmt.Printf("%T %v\n", x, x)
+	for _, v:= range x{
+		fmt.Println(v)
+	}
+}
+
+
+
+
+func mainImport() {
 	fmt.Println(foobarqix.Title)
 }
 
